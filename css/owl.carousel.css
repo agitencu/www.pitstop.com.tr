@@ -1,0 +1,419 @@
+/**
+ * Owl Carousel v2.2.0
+ * Copyright 2013-2016 David Deutsch
+ * Licensed under MIT (https://github.com/OwlCarousel2/OwlCarousel2/blob/master/LICENSE)
+ */
+/*
+ *  Owl Carousel - Core
+ */
+.owl-carousel {
+  display: none;
+  width: 100%;
+  -webkit-tap-highlight-color: transparent;
+  /* position relative and z-index fix webkit rendering fonts issue */
+  position: relative;
+  z-index: 1; }
+  .owl-carousel .owl-stage {
+    position: relative;
+    -ms-touch-action: pan-Y; }
+  .owl-carousel .owl-stage:after {
+    content: ".";
+    display: block;
+    clear: both;
+    visibility: hidden;
+    line-height: 0;
+    height: 0; }
+  .owl-carousel .owl-stage-outer {
+    position: relative;
+    overflow: hidden;
+    /* fix for flashing background */
+    -webkit-transform: translate3d(0px, 0px, 0px); }
+  .owl-carousel .owl-item {
+    position: relative;
+    min-height: 1px;
+    float: left;
+    -webkit-backface-visibility: hidden;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none; }
+  .owl-carousel .owl-item img {
+    display: block;
+    width: 100%;
+    -webkit-transform-style: preserve-3d; }
+  .owl-carousel .owl-nav.disabled,
+  .owl-carousel .owl-dots.disabled {
+    display: none; }
+  .owl-carousel .owl-nav .owl-prev,
+  .owl-carousel .owl-nav .owl-next,
+  .owl-carousel .owl-dot {
+    cursor: pointer;
+    cursor: hand;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none; }
+  .owl-carousel.owl-loaded {
+    display: block; }
+  .owl-carousel.owl-loading {
+    opacity: 0;
+    display: block; }
+  .owl-carousel.owl-hidden {
+    opacity: 0; }
+  .owl-carousel.owl-refresh .owl-item {
+    visibility: hidden; }
+  .owl-carousel.owl-drag .owl-item {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none; }
+  .owl-carousel.owl-grab {
+    cursor: move;
+    cursor: grab; }
+  .owl-carousel.owl-rtl {
+    direction: rtl; }
+  .owl-carousel.owl-rtl .owl-item {
+    float: right; }
+
+/* No Js */
+.no-js .owl-carousel {
+  display: block; }
+
+/*
+ *  Owl Carousel - Animate Plugin
+ */
+.owl-carousel .animated {
+  -webkit-animation-duration: 1000ms;
+          animation-duration: 1000ms;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both; }
+
+.owl-carousel .owl-animated-in {
+  z-index: 0; }
+
+.owl-carousel .owl-animated-out {
+  z-index: 1; }
+
+.owl-carousel .fadeOut {
+  -webkit-animation-name: fadeOut;
+          animation-name: fadeOut; }
+
+@-webkit-keyframes fadeOut {
+  0% {
+    opacity: 1; }
+  100% {
+    opacity: 0; } }
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1; }
+  100% {
+    opacity: 0; } }
+
+/*
+ * 	Owl Carousel - Auto Height Plugin
+ */
+.owl-height {
+  transition: height 500ms ease-in-out; }
+
+/*
+ * 	Owl Carousel - Lazy Load Plugin
+ */
+.owl-carousel .owl-item .owl-lazy {
+  opacity: 0;
+  transition: opacity 400ms ease; }
+
+.owl-carousel .owl-item img.owl-lazy {
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d; }
+
+/*
+ * 	Owl Carousel - Video Plugin
+ */
+.owl-carousel .owl-video-wrapper {
+  position: relative;
+  height: 100%;
+  background: #000; }
+
+.owl-carousel .owl-video-play-icon {
+  position: absolute;
+  height: 80px;
+  width: 80px;
+  left: 50%;
+  top: 50%;
+  margin-left: -40px;
+  margin-top: -40px;
+  background: url("owl.video.play.png") no-repeat;
+  cursor: pointer;
+  z-index: 1;
+  -webkit-backface-visibility: hidden;
+  transition: -webkit-transform 100ms ease;
+  transition: transform 100ms ease; }
+
+.owl-carousel .owl-video-play-icon:hover {
+  -webkit-transform: scale(1.3, 1.3);
+      -ms-transform: scale(1.3, 1.3);
+          transform: scale(1.3, 1.3); }
+
+.owl-carousel .owl-video-playing .owl-video-tn,
+.owl-carousel .owl-video-playing .owl-video-play-icon {
+  display: none; }
+
+.owl-carousel .owl-video-tn {
+  opacity: 0;
+  height: 100%;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  transition: opacity 400ms ease; }
+
+.owl-carousel .owl-video-frame {
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  width: 100%; }
+
+  			#logo {
+			text-align: center; 
+			margin-top: 10px;      /* Sayfanın en üstüne yakın dursun */
+			}
+
+			#logo img {
+			width: 120px;          /* LOGO BOYUTU (istersen 80–150px arası ayarlayabilirsin) */
+			height: auto;
+			border-radius: 50%;
+			display: inline-block;
+			}
+
+			/* Mobilde biraz daha küçültmek istersen */
+			@media (max-width: 576px) {
+			#logo img {
+				width: 90px;
+			}
+			}
+			
+      .banner-area {
+    padding-top: 50px; /* header yüksekliği kadar */
+    }
+    /* Mobil Cihazlar İçin Ayarlar (Media Queries) */
+    @media (max-width: 991px) {
+    /* Logo Boyutu */
+    #logo img {
+        max-width: 150px;
+        height: auto;
+    }
+
+    /* Banner Yazı Boyutları */
+    .banner-content h1 {
+        font-size: 2.5rem !important;
+        line-height: 1.2;
+    }
+
+    .banner-content p {
+        font-size: 14px;
+        padding: 0 15px;
+    }
+
+    /* Menü Butonları Yan Yana Sığmazsa Alt Alta Gelmesi */
+    .primary-btn {
+        padding: 10px 20px;
+        font-size: 12px;
+        display: inline-block;
+        width: 80%; /* Mobilde butonlar daha geniş ve kolay tıklanır olur */
+        margin-bottom: 10px;
+    }
+
+    /* Footer Düzenleme */
+    .single-footer-widget {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+    
+    .hr-list li {
+        flex-direction: column; /* Mobilde saat ve gün alt alta gelsin */
+        gap: 5px;
+    }
+}
+
+/* Navigasyon Menüsünü Mobilde Gizleme (JS ile açılması için) */
+@media (max-width: 991px) {
+    #nav-menu-container {
+        display: none; /* Tipik olarak bir 'Hamburger Menu' kütüphanesi kullanmalısınız */
+    }
+}
+  /* Masaüstü için genel hizalama */
+.banner-btn-wrapper {
+    display: flex;
+    justify-content: flex-start; /* Bilgisayarda sola yaslı (veya temanıza göre merkez) */
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+/* MOBİL AYARLAR (991px ve altı ekranlar) */
+@media (max-width: 991px) {
+    .banner-content {
+        text-align: center !important; /* Tüm metni ortalar */
+    }
+
+    .banner-btn-wrapper {
+        display: flex;
+        flex-direction: column; /* Butonları alt alta dizer */
+        align-items: center;    /* Butonları yatayda ortalar */
+        justify-content: center;
+        gap: 10px;              /* Butonlar arasındaki boşluk */
+        margin-top: 20px;
+    }
+
+    .banner-btn-wrapper .primary-btn {
+        width: 100%;            /* Mobilde butonlar ekranı kaplasın (daha kolay tıklanır) */
+        max-width: 280px;       /* Ama çok da devasa olmasın */
+        margin: 0 !important;   /* Dış boşlukları sıfırla, gap kullan */
+        text-align: center;
+    }
+}
+
+/* Sadece mobil ve tablet cihazlar için */
+    @media (max-width: 991px) {
+        
+        /* 1. JavaScript'in hesapladığı sabit yüksekliği zorla iptal et */
+        section.banner-area, 
+        section.banner-area .fullscreen {
+            height: auto !important; /* Yüksekliği serbest bırak */
+            min-height: auto !important; 
+            display: block !important; /* Esnek kutu yapısını boz, normal akış olsun */
+        }
+
+        /* 2. İçeriğin üstüne ve altına geniş boşluklar ver */
+        .banner-content {
+            padding-top: 50px !important; /* Menüden kurtarmak için üst boşluk */
+            padding-bottom: 140px !important; /* Footer'dan kurtarmak için alt boşluk */
+            margin-bottom: 50px !important; /* Ekstra güvenlik payı */
+        }
+
+        /* 3. Footer'ın yukarı kaçmasını engelle */
+        footer {
+            position: relative !important;
+            z-index: 10;
+        }
+        
+    }
+
+/* --- Genel Bölüm Ayarları --- */
+			.section {
+			padding: 60px 0;
+			overflow: hidden;
+			}
+
+			/* --- Başlık (Section Title) Tasarımı --- */
+			.section-title {
+			text-align: center;
+			padding-bottom: 40px;
+			}
+
+			.section-title h2 {
+			font-size: 14px;
+			font-weight: 500;
+			padding: 0;
+			line-height: 1px;
+			margin: 0 0 5px 0;
+			letter-spacing: 2px;
+			text-transform: uppercase;
+			color: black; /* Gri ton */
+			font-family: sans-serif;
+			}
+
+			.section-title p {
+			margin: 0;
+			margin-top: 15px; /* Başlık ile alt metin arası boşluk */
+			font-size: 36px;
+			font-weight: 700;
+			font-family: 'Amatic SC', sans-serif; /* El yazısı tarzı font varsa */
+			color: #212529;
+			}
+
+			.section-title span {
+			color: #f42f2c; /* Vurgu rengi (Kırmızı) */
+			}
+
+			/* --- İletişim Kartları (Info Item) Tasarımı --- */
+			.contact .info-item {
+			background: #f4f4f4; /* Kart arka planı (Hafif gri) */
+			padding: 30px;
+			height: 100%; /* Tüm kutuların aynı boyda olması için */
+			box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.05); /* Hafif gölge */
+			border-radius: 5px; /* Köşeleri yuvarlatma */
+			display: flex; /* İkon ve metni yan yana getirir */
+			align-items: center; /* Dikey ortalama */
+			}
+
+			/* --- İkon Tasarımı --- */
+			.contact .info-item .icon {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			width: 56px;
+			height: 56px;
+			font-size: 24px;
+			line-height: 0;
+			color: #fff; /* İkon rengi */
+			background: #f42f2c; /* İkon arka planı (Kırmızı) */
+			border-radius: 50%; /* Yuvarlak ikon */
+			margin-right: 20px; /* İkon ile metin arası boşluk */
+			flex-shrink: 0; /* İkonun sıkışmasını engeller */
+			}
+
+			/* --- Kart İçindeki Metinler --- */
+			.contact .info-item h3 {
+			font-size: 20px;
+			color: black;
+			font-weight: 700;
+			margin: 0 0 5px 0;
+			}
+
+			.contact .info-item p {
+			padding: 0;
+			line-height: 24px;
+			font-size: 14px;
+			margin: 0;
+			color: black;
+			}
+
+			/* --- Mobil Uyumluluk İçin Ufak Ayar --- */
+			@media (max-width: 575px) {
+			.section-title p {
+				font-size: 28px;
+			}
+			}
+
+      /* Galeri alanının yüksekliğini içeriğe göre ayarla */
+			.gallery-area {
+				height: auto !important; /* Yüksekliği serbest bırak */
+				overflow: hidden; /* İçerik taşarsa kapsayıcıyı büyüt */
+				padding-bottom: 100px; /* En alttaki resim ile Footer arasına boşluk koy */
+				display: block !important;
+				position: relative;
+				background-color: #fff; /* Arka plan rengi ver (Footer şeffafsa karışmasın) */
+				z-index: 1; /* Footer'ın üstünde kalmasın, kendi katmanında olsun */
+			}
+
+			/* Galeri içindeki resimlerin satır düzenini koru */
+			.grid {
+				display: flex;
+				flex-wrap: wrap;
+				margin-bottom: 30px; /* Grid bitimine ekstra boşluk */
+			}
+
+			/* Resimlerin kapsayıcı dışına taşmasını engelle */
+			.single-gallery {
+				margin-bottom: 30px; /* Her ürün kutusu arasına boşluk koy */
+				background: #fff;
+				height: 100%; /* Kutu yüksekliğini koru */
+			}
+
+			/* Resimlerin düzgün görünmesini sağla */
+			.single-gallery img {
+				width: 100%; /* Resmi kutuya sığdır */
+				height: auto;
+				display: block;
+				margin-bottom: 15px; /* Aynı kutu içindeki resimler birbirine yapışmasın */
+				border-radius: 10px; /* Görsel güzellik: Köşeleri yuvarla */
+			}
